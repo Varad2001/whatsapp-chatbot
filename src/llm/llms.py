@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from openai import OpenAI
 
 load_dotenv()
-assert os.environ.get("OPENAI_API_KEY")
+
 
 
 MAX_ITERATIONS = 15
