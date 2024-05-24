@@ -14,14 +14,15 @@ NEW_SESSION = "/new"
 def message():
     if request.method=="POST":
         data = request.form
+        from_number = str(data["From"]).split(":")[-1]
         if data["Body"].strip()==NEW_SESSION:
             llm.init_history()
-            send_message(to_number="+919175373448", body_text="New history initialized.")
+            send_message(to_number=from_number, body_text="New history initialized.")
             return jsonify("New history initialized.")
         input_query = f"""ProfileName : {data["ProfileName"]} \n \
         Text message : {data["Body"]}"""
         response = llm.chat(query=input_query)
-        send_message(to_number="+919175373448", body_text=response)
+        send_message(to_number=from_number, body_text=response)
         return jsonify(response)
 
 if __name__ == '__main__':
