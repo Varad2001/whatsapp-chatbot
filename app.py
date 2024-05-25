@@ -38,7 +38,7 @@ def message():
         new_history = llm.messages
         db.update_history(phone_number=from_number, history=new_history)
 
-        
+
         send_message(to_number=from_number, body_text=response)
         return jsonify(response)
 

@@ -1,17 +1,21 @@
 
-
 import os
 import json
+import requests
 from pydantic import BaseModel, Field
 from src.tools.tool import Tool
+from src.config import WEATHER_API_KEY, WEATHER_API_CALL
 
 
 class InputGetweather(BaseModel):
-    location : str = Field(description="The location to check the weather.")
+    location : str = Field(description="The city name to check the weather. e.g. Pune, London, Indore, etc.")
 
 def get_current_weather(location:str)-> str:
-    """Get the weather at the given location."""
-    return "{ 'temperature': '33 degree', 'type':'sunny'}"
+    """Get the weather at the given location. Share only relevant, simple details to the user. \
+        Like temperature, humidity, cloud cover, etc. Only if the user asks for more details, then \
+            share complicated details like Pressure, UV Index, etc."""
+    response = requests.get(WEATHER_API_CALL.format(key=WEATHER_API_KEY, location=location))
+    return response.json()
 
 def get_current_weather_executor(args):
     return get_current_weather(args["location"])
