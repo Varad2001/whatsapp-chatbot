@@ -5,26 +5,16 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import email
 from email.header import decode_header
-from dotenv import load_dotenv
 
-load_dotenv()
-
-# Email account credentials
-EMAIL = 'vktesting4@gmail.com'
-PASSWORD = os.environ.get("SENDER_PASSWORD")
-IMAP_SERVER = 'imap.gmail.com'
-IMAP_PORT = 993
-SMTP_SERVER = 'smtp.gmail.com'
-SMTP_PORT = 587
+from src.config import EMAIL, PASSWORD,IMAP_SERVER, IMAP_PORT , SMTP_SERVER , SMTP_PORT 
 
 
-
-def send_email(receiver_email, body):
+def send_email(receiver_email, body, subject):
     # Create the email content
     msg = MIMEMultipart()
     msg['From'] = EMAIL
     msg['To'] = receiver_email
-    msg['Subject'] = 'Daily Report'
+    msg['Subject'] = subject
 
     # Email body
     msg.attach(MIMEText(body, 'plain'))

@@ -1,22 +1,10 @@
 import os
 import json
-from dotenv import load_dotenv
 from openai import OpenAI
-
-load_dotenv()
-
+from src.config import BASE_URL, TUNESTUDIO_KEY , MAX_ITERATIONS, MODEL_NAME, SYSTEM
 
 
-MAX_ITERATIONS = 15
 
-BASE_URL = "https://proxy.tune.app/"
-TUNESTUDIO_KEY = os.environ.get("TUNESTUDIO_API_KEY")
-MODEL_NAME = "rohan/tune-gpt-4o"
-#MODEL_NAME = "gpt-3.5-turbo"
-
-SYSTEM = "You are an AI assistant deployed to answer user questions through WhatsApp. \
-    When using tools, THINK STEP BY STEP, STRICTLY CALL ONE TOOL AT A TIME. \
-     Use Whatsapp formatting. Also make use of proper emojis when possible."
 
 class LLM:
     def __init__(self, tools=None) -> None:
@@ -26,7 +14,7 @@ class LLM:
             
             )
         self.client = client
-        self.init_history()
+        #self.init_history()
         self.tools = tools
         
     def init_history(self):
@@ -61,7 +49,11 @@ class LLM:
     
 
     
-    def chat(self, query):
+    def chat(self, query, history):
+        if not ( history or len(history)==0):
+            self.init_history()
+        else:
+            self.messages = history
         self.messages.append({
             "role": "user",
             "content": query,
