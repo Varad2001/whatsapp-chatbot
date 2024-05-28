@@ -3,6 +3,13 @@
 In this project, I have tried to connect chatbots to whatsapp using TWILIO API. The chatbots have access to the user defined tools. <br>
 THIS PROJECT IS CURRENTLY IN PROGRESS AND NOT COMPLETE. 
 
+# DEMO
+<video width="600" controls>
+  <source src="assets/demo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
 ## Working
 - Once the user connects whatsapp number to Twilio service using a code, s/he is set to send the messages.
 - The messages are routed to the above mentioned API endpoint and then LLM API is called to get the response (currently GPT-4). 
