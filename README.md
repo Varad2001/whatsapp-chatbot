@@ -7,28 +7,35 @@ THIS PROJECT IS CURRENTLY IN PROGRESS AND NOT COMPLETE.
 ## Video
 [[Watch the video]](https://drive.google.com/file/d/1E08VkCfCCUaUzEODFTfpndND2CcXzYqr/view?usp=drive_link)
 ## Images
-<p float="left">
-    <img src="assets/image_1.jpeg" alt="Image Description 1" width="100"/>
-    <img src="assets/image_2.jpeg" alt="Image Description 2" width="100%"/>
-    <img src="assets/image_3.jpeg" alt="Image Description 3" width="100%"/>
+
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
   <div style="flex: 1 1 30%; box-sizing: border-box; padding: 5px;">
-    <img src="assets/image_4.jpeg" alt="Image Description 3" width="100"/>
+    <img src="assets/image_1.jpeg" alt="Image Description 1" width="200"/>
   </div>
   <div style="flex: 1 1 30%; box-sizing: border-box; padding: 5px;">
-    <img src="assets/image_5.jpeg" alt="Image Description 3" width="100"/>
+    <img src="assets/image_2.jpeg" alt="Image Description 2" width="200"/>
   </div>
   <div style="flex: 1 1 30%; box-sizing: border-box; padding: 5px;">
-    <img src="assets/image_6.jpeg" alt="Image Description 3" width="100"/>
+    <img src="assets/image_3.jpeg" alt="Image Description 3" width="200"/>
   </div>
   <div style="flex: 1 1 30%; box-sizing: border-box; padding: 5px;">
-    <img src="assets/image_7.jpeg" alt="Image Description 3" width="100%"/>
+    <img src="assets/image_4.jpeg" alt="Image Description 3" width="200"/>
   </div>
   <div style="flex: 1 1 30%; box-sizing: border-box; padding: 5px;">
-    <img src="assets/image_8.jpeg" alt="Image Description 3" width="100%"/>
+    <img src="assets/image_5.jpeg" alt="Image Description 3" width="200"/>
+  </div>
+  <div style="flex: 1 1 30%; box-sizing: border-box; padding: 5px;">
+    <img src="assets/image_6.jpeg" alt="Image Description 3" width="200"/>
+  </div>
+  <div style="flex: 1 1 30%; box-sizing: border-box; padding: 5px;">
+    <img src="assets/image_7.jpeg" alt="Image Description 3" width="200"/>
+  </div>
+  <div style="flex: 1 1 30%; box-sizing: border-box; padding: 5px;">
+    <img src="assets/image_8.jpeg" alt="Image Description 3" width="200"/>
   </div>
   <!-- Add more images as needed -->
 </div>
-</p>
+
 
 
 
