@@ -1,6 +1,7 @@
 import os
 import json
 from openai import OpenAI
+from src.logger import logging
 from src.config import BASE_URL, TUNESTUDIO_KEY , MAX_ITERATIONS, MODEL_NAME, SYSTEM
 
 
@@ -8,6 +9,7 @@ from src.config import BASE_URL, TUNESTUDIO_KEY , MAX_ITERATIONS, MODEL_NAME, SY
 
 class LLM:
     def __init__(self, tools=None) -> None:
+        logging.info(f"Initialising new LLM...")
         client = OpenAI(
             base_url=BASE_URL,
             api_key=TUNESTUDIO_KEY,
@@ -16,6 +18,8 @@ class LLM:
         self.client = client
         #self.init_history()
         self.tools = tools
+        logging.info(f"LLM initialised successfully.")
+
         
     def init_history(self):
         self.messages = [ {
@@ -24,6 +28,7 @@ class LLM:
             }]
         
     def get_response(self,messages, tools=None):
+        logging.info(f"Getting response from {BASE_URL}...")
         if tools : 
             response =  self.client.chat.completions.create(
                     model=MODEL_NAME,
@@ -50,10 +55,13 @@ class LLM:
 
     
     def chat(self, query, history):
+        logging.info(f"New chat request...")
+
         if not ( history or len(history)==0):
             self.init_history()
         else:
             self.messages = history
+
         self.messages.append({
             "role": "user",
             "content": query,
@@ -65,7 +73,9 @@ class LLM:
             #print(f"{response.choices[0].message.content}")
 
             if response.choices[0].finish_reason == "stop":
+                logging.info(f"\nFinal answer:{response.choices[0].message.content}")
                 print(f"\nFinal answer:{response.choices[0].message.content}")
+
                 self.messages.append({
                             "role": "system",
                             "content": response.choices[0].message.content,
@@ -73,12 +83,14 @@ class LLM:
                 return response.choices[0].message.content
             
             if response.choices[0].finish_reason == 'tool_calls':
+                
                 tool_calls = response.choices[0].message.tool_calls
                 self.messages.append(response.choices[0].message)
 
                 for tool_call in tool_calls[:1]:
                     function_name = tool_call.function.name
 
+                    logging.info(f"\nTool call : {function_name}\n{response.choices[0].message}")
                     print(f"\nTool call : {function_name}\n{response.choices[0].message}")
 
                     function_to_call = self.tools.tool_to_call[function_name]
@@ -87,6 +99,7 @@ class LLM:
                         function_args
                     )
 
+                    logging.info(f"\nFucntion response :{function_response}")
                     print(f"\nFucntion response :{function_response}")
 
                     """self.messages.append(

@@ -7,6 +7,7 @@ from src.config import account_sid, auth_token, client , twilio_number
 
 # Sending message logic through Twilio Messaging API
 def send_message(to_number, body_text):
+    logging.info(f"Sending message to {to_number}...")
     try:
         message = client.messages.create(
             from_=f"whatsapp:{twilio_number}",
