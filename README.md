@@ -12,17 +12,15 @@ THIS PROJECT IS CURRENTLY IN PROGRESS AND NOT COMPLETE.
   <img src="assets/image_1.jpeg" width="200" />
   <img src="assets/image_2.jpeg" width="200" /> 
   <img src="assets/image_3.jpeg" width="200" />
+  <img src="assets/image_4.jpeg" width="200" />
 </p>
 <p float="left">
-  <img src="assets/image_4.jpeg" width="200" />
+  
   <img src="assets/image_5.jpeg" width="200" />
   <img src="assets/image_6.jpeg" width="200" />
-</p>
-<p float="left">
   <img src="assets/image_7.jpeg" width="200" />
   <img src="assets/image_8.jpeg" width="200" />
 </p>
-
 
 
 ## Working
