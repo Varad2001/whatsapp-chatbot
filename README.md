@@ -4,10 +4,39 @@ In this project, I have tried to connect chatbots to whatsapp using TWILIO API. 
 THIS PROJECT IS CURRENTLY IN PROGRESS AND NOT COMPLETE. 
 
 # DEMO
-<video width="600" controls>
-  <source src="assets/demo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+## Video
+[[Watch the video]](https://drive.google.com/file/d/1E08VkCfCCUaUzEODFTfpndND2CcXzYqr/view?usp=drive_link)
+## Images
+
+<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+  <div>
+    <img src="assets/image_1.jpeg" alt="Image Description 1" width="100%"/>
+  </div>
+  <div>
+    <img src="assets/image_2.jpeg" alt="Image Description 2" width="100%"/>
+  </div>
+  <div>
+    <img src="assets/image_3.jpeg" alt="Image Description 3" width="100%"/>
+  </div>
+  <div>
+    <img src="assets/image_4.jpeg" alt="Image Description 3" width="100%"/>
+  </div>
+  <div>
+    <img src="assets/image_5.jpeg" alt="Image Description 3" width="100%"/>
+  </div>
+  <div>
+    <img src="assets/image_6.jpeg" alt="Image Description 3" width="100%"/>
+  </div>
+  <div>
+    <img src="assets/image_7.jpeg" alt="Image Description 3" width="100%"/>
+  </div>
+  <div>
+    <img src="assets/image_8.jpeg" alt="Image Description 3" width="100%"/>
+  </div>
+  <!-- Add more images as needed -->
+</div>
+
+
 
 
 ## Working
