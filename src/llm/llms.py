@@ -35,6 +35,30 @@ class LLM:
                 model=MODEL_NAME,
                 messages=messages,)
         return response
+    
+
+    def get_image_response(self, url, text=None):
+        if not text:
+            text = "Describe."
+        response = self.client.chat.completions.create(
+            model = "gpt-4o",
+        messages=[
+            {
+            "role": "user",
+            "content": [
+                {"type": "text", "text": text},
+                {
+                "type": "image_url",
+                "image_url": {
+                    "url": f"{url}",
+                },
+                },
+            ],
+            }
+        ],
+        max_tokens=300,
+        )
+        response.choices[0].message.content
 
 
 
@@ -89,19 +113,19 @@ class LLM:
 
                     print(f"\nFucntion response :{function_response}")
 
-                    """self.messages.append(
+                    self.messages.append(
                         {
                             "tool_call_id": tool_call.id,
                             "role": "tool",
-                            "name": function_name,
-                            "content": function_response,
+                            #"name": function_name,
+                            "content": json.dumps(function_response),
                         }
-                    )"""
-                    self.messages.append(
-                        {
-                            "role": "user",
-                            "content": f"Function response : {function_response}",
-                        })
+                    )
+                    # self.messages.append(
+                    #     {
+                    #         "role": "user",
+                    #         "content": f"Function response : {function_response}",
+                    #     })
             else:
                 print(f"{response.choices[0].finish_reason}")
                 return response
